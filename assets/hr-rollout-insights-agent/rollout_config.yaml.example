@@ -1,0 +1,42 @@
+# HR Rollout Insights Agent — Rollout Initiative Configuration
+# Copy this file to rollout_config.yaml and update with your values.
+#
+# Each rollout initiative has a name and one or more document sources.
+# Supported source types: "sharepoint", "local"
+# doc_type_hints map sources to expected document categories.
+
+rollouts:
+  - name: "SuccessFactors Onboarding Q4-2025"
+    sources:
+      - type: sharepoint
+        connection:
+          site_url: "https://contoso.sharepoint.com/sites/HRTransformation"
+          folder_path: "Shared Documents/Onboarding Rollout/Q4-2025"
+        doc_type_hints:
+          - project_plan
+          - change_management
+      - type: sharepoint
+        connection:
+          site_url: "https://contoso.sharepoint.com/sites/HRTransformation"
+          folder_path: "Shared Documents/Onboarding Rollout/Training"
+        doc_type_hints:
+          - training_material
+
+  - name: "Performance Goals Rollout 2025"
+    sources:
+      - type: sharepoint
+        connection:
+          site_url: "https://contoso.sharepoint.com/sites/HRTransformation"
+          folder_path: "Shared Documents/PnG Rollout"
+        doc_type_hints:
+          - project_plan
+          - change_management
+          - comms_plan
+
+  - name: "Local Dev Test"
+    sources:
+      - type: local
+        connection:
+          folder_path: "./test_docs"
+        doc_type_hints:
+          - project_plan

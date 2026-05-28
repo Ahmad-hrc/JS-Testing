@@ -1,0 +1,57 @@
+# HR Rollout Insights Agent — Rollout Initiative Configuration
+#
+# HOW TO ADD YOUR DOCUMENTS:
+# 1. Create a folder inside this directory, e.g. docs/my-rollout/
+# 2. Copy your PDF files into that folder
+# 3. Add an entry below under "rollouts" pointing to that folder
+# 4. Ask the agent: "Ingest documents for <your rollout name>"
+#
+# Supported file types: .pdf, .txt, .md, .csv
+# Supported source types: "local" (folder on disk), "sharepoint" (SharePoint Online)
+
+rollouts:
+
+  # ── GJPM — Global Job Profile Management Rollout ─────────────────────────
+  - name: "GJPM"
+    sources:
+      - type: local
+        connection:
+          folder_path: "./docs/gjpm"
+        doc_type_hints:
+          - project_plan
+          - training_material
+          - change_management
+          - comms_plan
+          - go_live_checklist
+
+  # ── Example: Local PDF folder ────────────────────────────────────────────
+  # Uncomment and update the block below to point to your PDF documents.
+  #
+  # - name: "My HR Rollout"
+  #   sources:
+  #     - type: local
+  #       connection:
+  #         folder_path: "./docs/my-rollout"
+  #       doc_type_hints:
+  #         - project_plan
+  #         - training_material
+  #         - change_management
+
+  # ── Example: SharePoint Online ───────────────────────────────────────────
+  # Uncomment and update if your documents live in SharePoint.
+  #
+  # - name: "SuccessFactors Onboarding Q4-2025"
+  #   sources:
+  #     - type: sharepoint
+  #       connection:
+  #         site_url: "https://your-tenant.sharepoint.com/sites/HRTransformation"
+  #         folder_path: "Shared Documents/Onboarding Rollout/Q4-2025"
+  #       doc_type_hints:
+  #         - project_plan
+  #         - change_management
+  #     - type: sharepoint
+  #       connection:
+  #         site_url: "https://your-tenant.sharepoint.com/sites/HRTransformation"
+  #         folder_path: "Shared Documents/Onboarding Rollout/Training"
+  #       doc_type_hints:
+  #         - training_material
